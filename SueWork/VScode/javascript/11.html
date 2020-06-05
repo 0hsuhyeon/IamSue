@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+    </script>
+
+</head>
+<body>
+    <script>
+        /* for 문 기초 
+        
+        or(var i = 0; i<5;i++)
+            alert(i)
+
+        for(var i = 5; i>0; i--)
+            alart(i)
+        
+            */
+
+        /*for in 문 기초*/
+
+        //var a = ['d','a','c',4,5]
+        //    alert(a)
+        //for (var i in  a){
+        //    alert(i)
+        //}
+        
+        
+
+        /*for문으로 구구단 2단 만들기
+
+        for(var i =1; i<10 ; i++)
+            alert('2 X' + i + '=' +(2*i))
+        */
+
+        /*뒤죽박죽 숫자 올바르게 정렬하기
+        //버블정렬 -> 가장 기본이지만 가장 무식한 방법
+        var a = [8,1,7,5,86,6,4,2,3,72]
+        var temp;
+        for (var j = 0; j<a.length ; j++){
+            for( var i =0; i<a.length ; i++){
+                if(a[i]>a[i+1]){
+                    temp = a[i]
+                    a[i] = a[i+1]
+                    a[i+1] = temp
+                }
+            }
+        }   
+        alert(a)
+        */
+
+        /*
+        //선택정렬
+        var a = [8,1,7,5,86,6,4,2,3,72]
+       // var temp =0;
+       // var min_num = 0
+       // for (var j = 0; j<a.length;j++){
+       //     min_num = j
+       //     for(var i=j+1; i<a.length ; i++){
+       //         if(a[min_num> a[i]]){
+        //            min_num = i
+        //        }
+       //     } 
+        //temp = a[min_num]
+     //   a[min_num] = a[j]
+       // a[j] = temp
+     //   }
+        
+        alert(a.sort())
+        */
+
+
+        //1
+        /*
+        var a = Math.random()
+        alert(a) //랜덤으로 추출하는것
+
+
+        //2
+        b=[]
+        b.push(a) // 값을 넣는 것
+        b.push(a)
+        alert(b)
+
+        var a = Math.random()
+        alert(parseInt(a)) //정수로 변환 
+        */
+
+
+        // 6개의 로또 번호를 저장할 배열
+        var lotto = new Array(6);
+       // 추첨된 로또번호의 갯수
+        var count = 0;
+      // 번호중복 방지용 변수
+        var mFlag = true;
+        // 6개의 로또번호를 얻을때까지 반복
+        while(count < 6)
+        {
+           var number;
+           // 랜덤번호 추출
+           number = parseInt(Math.random()*45)+1
+           // 중복확인
+           for(var i=0; i<count; i++)
+              if(lotto[i] == number) mFlag = false;
+           // 중복된 번호가 아니면 로또 번호배열에 추가
+           if(mFlag)
+           {
+                lotto[count] = number;
+                count++;
+           }
+           mFlag = true;
+       }
+
+    // 추첨된 로또번호 출력
+    //alert(lotto[0]+', '+lotto[1]+', '+lotto[2]+', '+lotto[3]+', '+lotto[4]+', '+lotto[5]);
+       alert(lotto.sort())
+
+       
+
+    </script>
+
+</body>
+</html>

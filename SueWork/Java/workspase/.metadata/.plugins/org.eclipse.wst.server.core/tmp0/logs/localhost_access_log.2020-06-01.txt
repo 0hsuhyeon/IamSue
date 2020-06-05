@@ -1,0 +1,6 @@
+127.0.0.1 - - [01/Jun/2020:13:09:28 +0900] "GET / HTTP/1.1" 404 750
+0:0:0:0:0:0:0:1 - - [01/Jun/2020:13:09:29 +0900] "GET /exwe/servlet/kr.ac.kepo.student.StudentListServlet HTTP/1.1" 404 808
+0:0:0:0:0:0:0:1 - - [01/Jun/2020:13:09:29 +0900] "GET /favicon.ico HTTP/1.1" 404 761
+127.0.0.1 - - [01/Jun/2020:13:19:55 +0900] "GET / HTTP/1.1" 404 750
+0:0:0:0:0:0:0:1 - - [01/Jun/2020:13:19:57 +0900] "GET /exwe/servlet/kr.ac.kepo.student.StudentListServlet HTTP/1.1" 404 808
+0:0:0:0:0:0:0:1 - - [01/Jun/2020:13:19:57 +0900] "GET /favicon.ico HTTP/1.1" 404 761

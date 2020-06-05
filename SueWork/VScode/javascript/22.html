@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+    <label class = "ari" for="class">사칙연산</label>
+
+</form>
+
+<div align='center' class="panel panel-primary">
+    <div class="panel-heading">문제</div>
+    <div class="panel-body" id='q'></div>
+</div>
+<br/>
+<div class="input-group input-group-lg">
+    <span class="input-group-addon" >
+</div>
+
+    <script>
+        // 사칙연산 식
+        var arithmetic_list = ['+','-','*','/']
+        var q = document.getElementById('q');
+
+        var num1 = parseInt(Math.random()*10);
+        var num2 = parseInt(Math.random()*10);
+        var ari = arithmetic_list[parseInt(Math.random()*4)]
+    
+        var ques = num1 + ari + num2
+            q.innerHTML= ques;
+
+        // 사칙연산 식의 정답
+        var ans =0;
+        if(ari == '+'){
+            ans = num1 + num2
+        }else if(ari == '-'){
+            ans = num1 - num2
+        }else if(ari == '*'){
+            ans = num1 * num2
+        }else if(ari == '/'){
+            ans = num1 / num2
+        }
+
+        var my = document.getElementById('my').nodeValue
+        alert(my)
+
+        if(문제 == ans){
+            alert(정답입니다)
+        }
+    </script>
+
+    
+<!-- <h1>만들것</h1>
+
+1. 단순 사칙연산 페이지
+2. 페이지 수 :: 메인/1자리수/2자리수/3자리수 연습/테스트
+    메인
+    - 각자리수 연습 페이지로 이동
+    - 이 홈페이지 설명
+    - 테스트 페이지 이동
+
+    1~3자리수 연습
+    - 연습 방법 안내
+    - 문제 나오는 곳
+    - 문제 푸는 곳 (입력...input)
+    - 검사, 점수 나오는 곳
+    - 사칙 연산자 선택(+,-,*,/,all) -> 여러개 중 하나 선택(select)
+
+    언젠가,,, 진행바,,,,필요할지도,,,ㅎ 
+
+
+
+    빈츠맛있다.. -->
+</form>
+</body>
+</html>

@@ -1,0 +1,25 @@
+
+public class Ex03 {
+	public static void main(String[] args) {
+		
+		// 이차원 배열[3,3]에 0~100사이의 난수를 입력받아 배열 대각선 방향의 합을 구해서 출력하는 것
+		int [][] arr = new int[3][3];
+		int sum = 0;
+		
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j < arr[i].length; j++) {
+				arr[i][j] = (int)(Math.random()*100+1);
+				System.out.printf("%d ",arr[i][j]);
+			
+				if (i==j)
+					sum += arr[i][j];
+					
+			}
+			System.out.println();
+			System.out.println(sum);
+			
+		}
+	
+		// 발생된 난수값들을 가지고 각 행의 최댓값 출력 
+	}
+}

@@ -1,0 +1,19 @@
+package com.exam;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/req/*") // 경로가 /req/ 뒤에 어떤 파일을 요청하더라도 아래 파일이 실행된다
+public class ReqServlet extends HttpServlet {
+
+		@Override
+		protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+			// TODO Auto-generated method stub
+			super.service(req, resp);
+		}
+}

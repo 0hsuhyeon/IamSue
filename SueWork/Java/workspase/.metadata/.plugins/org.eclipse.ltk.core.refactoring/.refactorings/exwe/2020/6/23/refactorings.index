@@ -1,0 +1,12 @@
+1591172575201	Delete element
+1591324702542	Extract method 'insertMember'
+1591330875948	Extract method 'deleteMember'
+1591331121918	Rename local variable 'delid'
+1591331935182	Extract method 'selectMember'
+1591332189526	Rename local variable 'no'
+1591332554961	Extract method 'udateMember'
+1591334249060	Extract method 'selectMemberList'
+1591338938318	Copy folder
+1591341500317	Move 'jsp' to 'WEB-INF'
+1591342424563	Delete element
+1591346155521	Delete element

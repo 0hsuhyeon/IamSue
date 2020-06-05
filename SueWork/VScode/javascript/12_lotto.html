@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+       
+// 포문 사용 
+        // lotto = []
+
+        // for(var a =0; a<9999999 ; a++){
+        //     var tem= parseInt((Math.random()*45)+1)
+        //     if(lotto.length == 0){
+        //         lotto.push(tem)
+        //     }else{
+        //         count =0
+        //         for (var j =0; j<lotto.length;j++){
+        //             if(lotto[j] == tem){
+        //                 count = count +1
+        //             }
+        //         }if(count ==0){
+        //             lotto.push(tem)
+        //         }
+        //     }
+        //    if (lotto.length == 6){
+        //        break;
+        //    }
+        // } 
+        // alert(lotto)
+
+// While 반복문 사용
+        lotto = []
+
+        whlie (true) 
+        {
+            var tem= parseInt((Math.random()*45)+1)
+            if(lotto.length == 0){
+             lotto.push(tem)
+            }else
+            {
+                var count =0 // 중복의 갯수를 세는 기능
+                for (var j =0; j<lotto.length;j++){
+                if(lotto[j] == tem){
+                    count = count +1 // 중복이 있을 경우에 카운트 된다 
+                }
+                }
+                if(count ==0){
+                    lotto.push(tem) // 중복이 없을 경우 로또에 저장 
+                }
+            }
+            
+            if (lotto.length == 6){
+               break;
+           }
+        }
+        alert(lotto)
+    
+    
+    // </script>
+
+    
+</head>
+<body>
+    
+</body>
+</html>

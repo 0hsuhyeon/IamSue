@@ -1,0 +1,9 @@
+package kr.ac.kepo.member;
+
+//브라우저 주소창에 
+//http://localhost:8000/exweb/member/del.do?memId=a001
+//을 입력하고 엔터키를 입력하면 
+//데이터베이스에서 아이디가 a001인 회원을 삭제하고 브라우저 화면에 회원목록이 출력되도록 구현
+public class MemberDelServlet {
+
+}

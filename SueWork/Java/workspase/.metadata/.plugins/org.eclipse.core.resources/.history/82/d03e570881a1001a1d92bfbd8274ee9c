@@ -1,0 +1,99 @@
+package kr.ac.kepo.member;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/member/edit.do")
+public class MemberEditServlet extends HttpServlet{
+
+	Scanner s = new Scanner(System.in);
+	{
+		// 초기화 블럭
+		try {
+			Class.forName("oracle.jdbc.OracleDriver");
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	String url ="jdbc:oracle:thin:@localhost:1521:xe";
+	String user ="com"; 
+	String password ="com01"; 
+	
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		System.out.println("정보를 변경할 회원의 아이디를 입력하세요");
+		String no = s.nextLine();
+		
+		{
+			String sql ="SELECT mem_id, mem_pass, mem_name, mem_point FROM MEMBER WHERE mem_id = ?";
+			try (
+				
+				Connection conn = DriverManager.getConnection(url, user, password);
+				PreparedStatement pstmt = conn.prepareStatement(sql);
+			){
+				
+				pstmt.setString(1,no);
+				
+				try {
+					ResultSet rs = pstmt.executeQuery();
+					
+					if(rs.next()){
+						String stuNo = rs.getString("stu_no"); 
+						String stuName = rs.getString("stu_name");
+						int stuScore = rs.getInt("stu_score");
+						System.out.println(stuNo +" : "+ stuName +" : "+ stuScore);
+						
+						System.out.println("변경할 성적을 입력하세요");
+						int sc = s.nextInt();
+						
+					
+							String sql2 = "UPDATE MEMBER SET Mem = ? where stu_no =?";//실행할 SQL문을 명령문 객체로 생성(실행준비)
+							
+							//try()안에 선언된 변수는 try-catch 블럭 실행이 끝난 후 자동으로 달아준다(close)
+							try (
+								//데이터베이스에 접속(연결,로그인)
+								Connection conn2 = DriverManager.getConnection(url, user, password);//Ctrl +1 하고 첫번째 거 클릭 
+								//실행할 SQL문을 명령문 객체로 생성(실행준비)
+								PreparedStatement pstmt2 = conn2.prepareStatement(sql2);
+							){
+								
+								pstmt2.setInt(1,sc);
+								pstmt2.setString(2,no);
+								
+								int num = pstmt2.executeUpdate();// 실행결과 변경된 레코드 수를 반환
+								System.out.println(num + "개의 레코드 변경");
+								
+					
+								
+							} catch (SQLException e) {
+								e.printStackTrace();
+							}
+					
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
+}

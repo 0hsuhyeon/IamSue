@@ -1,0 +1,107 @@
+package kr.ac.kepo.member;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+//브라우저 주소창에
+//http://localhost:8000/exwe/member/addform.do
+//를 입력하고 엔터키를 입력하면 
+//브라우저 화면에 회원 정보를 입력할 수 있는 엘리먼트들이 출력되도록 
+
+@WebServlet("/member/addform.do")
+public class MamberAddFromServlet extends HttpServlet {
+	Scanner s = new Scanner(System.in);
+	{
+		// 초기화 블럭
+		try {
+			Class.forName("oracle.jdbc.OracleDriver");
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	String url ="jdbc:oracle:thin:@localhost:1521:xe";
+	String user ="com"; 
+	String password ="com01"; 
+	
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setContentType("text/html");//응답내용이 text/html임을 알리도록 설정
+		resp.setCharacterEncoding("UTF-8"); //응답내용의 문자 인코딩 설정
+		PrintWriter out = resp.getWriter(); //응답객체에 출력할 수 있는 스트림 가져오기
+	
+	
+		//out.print("Hello Servlet!!!");
+		out.print("<!DOCTYPE html>");
+		out.print("<html>");
+		out.print("<head>                           ");
+		out.print("<meta charset='UTF-8'>           ");
+		out.print("<title>회원관리</title> ");
+		out.print("</head>                          ");
+		out.print("<body>                           ");
+		out.print("	<h1>회원 추가</h1>       ");
+		out.print("	<form action='http://localhost:8000/exwe/member/addform.do' method='post'>      ");
+		out.print("	<fieldset>      ");
+		
+		out.print("	<label for=\"mem-id\">신규 아이디 </label>     ");
+		out.print("	<input type=\"text\" id=\"user-id\"><br/>      ");
+		out.print("	<label for=\"mem-pw\">비밀번호 </label>     ");
+		out.print("	<input type=\"password\" id=\"pwd1\"> <br/>      ");
+		out.print("	<label for=\"mam-name\">이름 </label>     ");
+		out.print("	<input type=\"name\" id=\"pwd1\"> <br/>      ");
+		out.print("	<label for=\"mam-name\">포인트 </label>     ");
+		out.print("	<input type=\"name\" id=\"pwd1\"> <br/>      ");
+		out.print(" <input type=\"submit\" value=\"저장\">");
+//			out.println("신규 아이디를 입력하세요");
+//				String id = s.nextLine();
+//			out.println("신규 비밀번호를 입력하세요");
+//				String pw = s.nextLine();
+//			out.println("신규 이름을 입력하세요");
+//				String na = s.nextLine();
+//			out.println("신규 포인트를 입력하세요");
+//				int po = s.nextInt();
+//			{
+//				//SQL문에서 변화하는 값은 ?로 표시
+//				String sql ="INSERT INTO MEMBER(mem_id, mem_pass, mem_name, mem_point)" 
+//							+ "VALUES(?,?,?,?)";
+//						
+//						
+//				try (
+//							
+//					Connection conn = DriverManager.getConnection(url, user, password);
+//					PreparedStatement pstmt = conn.prepareStatement(sql);
+//				){
+//							
+//					pstmt.setString(1,id);//pstmt에 들어있는 SQL문의 1번째 ?에 id값을 주입
+//					pstmt.setString(2,pw);
+//					pstmt.setString(3,na);
+//					pstmt.setInt(4,po);
+//							
+//					int num = pstmt.executeUpdate();
+//					out.println(num + "개의 레코드 추가");
+//							
+//				 } catch (SQLException e) {
+//					e.printStackTrace();
+//				 	}
+//			}
+		out.print("	</fieldset>      ");
+		out.print("	</form>      ");
+		out.print("</body>                          ");
+		out.print("</html>                          ");
+		
+	}
+
+}

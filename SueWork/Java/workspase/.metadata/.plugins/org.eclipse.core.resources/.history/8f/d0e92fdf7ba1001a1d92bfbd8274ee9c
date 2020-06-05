@@ -1,0 +1,11 @@
+package kr.ac.kepo.member;
+
+//브라우저 주소창에
+//http://localhost:8000/exwe/member/edit.do?memId=a001
+//를 입력하고 엔터키를 입력하면 
+//브라우저 화면에 회원 정보를 입력할 수 있는 폼과 입력엘리먼트를 출력하고
+//데이터베이스에서 아이디가 'a001'인 회원의 정보를 조회하여
+//그 정보를 입력 엘리먼트들에 현재 값으로 출력
+public class MemberEditFormServlet {
+
+}
