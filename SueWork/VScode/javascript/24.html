@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator new</title>
+</head>
+<body align='center'>
+     <h1 style='font-size: 60px;'> ★Arithmetic Test★</h1> </h1>
+    <h1 style='font-size: 100px;'' id='q'>여기 문제 </h1>
+
+    <input id='my' placeholder="값을 입력하세요" />
+    <input type='hidden' id='ans' value=''/>
+
+    <button onclick='refresh()'> NEXT </button>
+
+    <br/><br/>
+    <input style='font-size: 30px;' id ='a' disabled/>
+    <input style='font-size: 30px;' id ='b' disabled/>
+
+    <script>
+
+        window.onload = refresh()
+
+        function off(){
+            document.getElementById("aaa").disabled = true;
+        }
+
+        var count = 0
+        var cor = 0
+        var err = 0
+
+       
+        function refresh() {
+
+            var arithmetic_list = ['+','-','*','/']
+            var q = document.getElementById('q');
+            var level = 10
+            
+            var num1 = parseInt(Math.random()*level);
+            var num2 = parseInt(Math.random()*level);
+            var ari = arithmetic_list[parseInt(Math.random()*4)]
+        
+            var ans =0; // 정답
+            if(ari == '+'){
+                ans = num1 + num2
+            }else if(ari == '-'){
+                ans = num1 - num2
+            }else if(ari == '*'){
+                ans = num1 * num2
+            }else if(ari == '/'){
+                ans = num1 / num2
+            }
+
+
+            var ques = num1 + ari + num2
+                q.innerHTML= ques;
+            
+                count = count +1
+
+
+        }
+        
+
+    </script>
+
+</body>
+</html>

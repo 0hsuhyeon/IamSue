@@ -6,11 +6,22 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="&quot;"/>
+		<item key="selection" value="BbsVo"/>
 		<list key="findhistory">
+			<item value="MemberVo"/>
+			<item value="BbsVo"/>
+			<item value="Member"/>
+			<item value="Mem"/>
+			<item value="MemId"/>
+			<item value="&apos;"/>
 			<item value="\&quot;"/>
 		</list>
 		<list key="replacehistory">
+			<item value="BbsVo"/>
+			<item value="MemberVo"/>
+			<item value="Bbs"/>
+			<item value="mem"/>
+			<item value="memId"/>
 			<item value="&quot;"/>
 		</list>
 	</section>

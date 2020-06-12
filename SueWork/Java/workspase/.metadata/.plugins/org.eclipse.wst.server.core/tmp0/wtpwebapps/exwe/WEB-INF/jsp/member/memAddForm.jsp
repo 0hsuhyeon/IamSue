@@ -3,13 +3,13 @@
 		<!DOCTYPE html>				
 		<html>						
 		<head>                         
-		<meta charset='UTF-8'>         
+		<meta charset="UTF-8">         
 		<title>회원관리</title> 		
 		</head>                        
 		<body align="center">        
 			<h1>회원 추가</h1>       	
-		
-			<form action='<%=request.getContextPath()%>/member/add.do' method='post'>      
+		     
+			<form action="${pageContext.request.contextPath}/member/add.do" method="post">      
 			<fieldset>      								
 		
 			<label for="memId">신규 아이디 </label>     

@@ -1,0 +1,9 @@
+package kr.ac.kopo.bbs;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+
+@WebServlet("/bbs/edit.do")
+public class BbsEditServlet extends HttpServlet{
+	BbsDaoJdbc bbsDao = new BbsDaoJdbc();
+}

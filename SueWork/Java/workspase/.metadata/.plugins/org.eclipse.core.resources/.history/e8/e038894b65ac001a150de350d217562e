@@ -1,0 +1,20 @@
+package kr.ac.kopo.bbs;
+
+import java.util.ArrayList;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+public class BbsListServlet extends HttpServlet{
+	BbsDaoJdbc bbsDao = new BbsDaoJdbc();
+	
+	
+	@Override
+	protected void doGet(javax.servlet.http.HttpServletRequest req, javax.servlet.http.HttpServletResponse resp) throws javax.servlet.ServletException ,java.io.IOException {
+		ArrayList<BbsVo> list = bbsDao.selectBbsList();
+		
+		req.setAttribute("bbsList", list);
+	};
+}

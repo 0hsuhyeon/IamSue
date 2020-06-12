@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body align='center'>
+    연산선택
+    <!-- 원하는 연산방식을 선택하는 select문 -->
+    <select id='ch'>
+        <option> + </option>
+        <option> - </option>
+        <option> * </option>
+        <option> / </option>
+    </select>
+    <h1 style='font-size: 100px;'' id='q'>123</h1>
+    <input id='my' placeholder="값을 입력하세요" />
+    <input type='hidden' id='ans' value=''/>
+    <button onclick='check()'>정답확인</button>
+    <button onclick='refresh()'>다음문제</button>
+    <br/><br/>
+    <input style='font-size: 30px;' id ='a' disabled/>
+    <input style='font-size: 30px;' id ='b' disabled/>
+
+    <script>
+        // 홈페이지가 떴을때(window.onload), refresh를 실행시켜라
+        window.onload = refresh()
+        var count = 0
+        var cor = 0
+        var err = 0
+
+        function refresh(){
+
+            var ch = document.getElementById('ch')
+            var op = ch.options[ch.selectedIndex].text
+            var level = 10
+
+            if (cor > 10) {
+                level = 100
+            }else if (cor > 20){
+                lever = 500
+            }else{
+                level = 10
+            }
+
+
+
+            // 지금 사용하지 않음 var cal_list = ['+','-','*','/']
+            var q = document.getElementById('q');
+            var num1 = parseInt(Math.random()*level);
+            var num2 = parseInt(Math.random()*level);
+            // 지금 사용하지 않음 var cal = cal_list[parseInt(Math.random()*4)]
+            
+            if (op == '/'){
+                while (true) {
+                    num1 = parseInt(Math.random() *level);
+                    num2 = parseInt(Math.random() *level);
+                    if(num1 !=0 && num2 !=0){
+                        break
+                    }
+                }
+            }
+
+
+            var ques = num1 + op + num2
+            
+            q.innerHTML = ques
+
+            if (op == '+'){
+                //document: html의 문서를 가져오는 것
+                document.getElementById('ans').value = num1+num2
+            }
+            else if (op == '-'){
+                document.getElementById('ans').value = num1-num2
+            }
+            else if(op == '*'){
+                document.getElementById('ans').value = num1*num2
+            }
+            else{
+                document.getElementById('ans').value = num1/num2
+            }
+        }
+        
+
+        function check(){
+   
+            var my = document.getElementById('my').value
+            var ans = document.getElementById('ans').value
+
+            if(ans == my){
+                alert('정답')
+                count = count + 1
+                cor = cor + 1
+                document.getElementById('a').value = cor
+                document.getElementById('b').value = count
+            }
+            else if(my == ''){ 
+                alert('값을 입력하세요')
+            }
+            else{
+                alert('오답')
+                count = count +1
+                err = err + 1
+                document.getElementById('b').value = count
+            }
+        }
+
+        
+
+        
+
+    </script>
+
+</body>
+</html>

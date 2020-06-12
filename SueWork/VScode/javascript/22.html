@@ -54,11 +54,17 @@
             ans = num1 / num2
         }
 
-        var my = document.getElementById('my').nodeValue
-        alert(my)
+        function check(){
+            var my = document.getElementById('my').value
+            if(ans == my){
+                alert('정답')
+                // document.getElementById('cor').style.display = 'block'
+            }
+            else{
+                alert('오답')
+                // document.getElementById('err').style.display = 'block'
+            }
 
-        if(문제 == ans){
-            alert(정답입니다)
         }
     </script>
 

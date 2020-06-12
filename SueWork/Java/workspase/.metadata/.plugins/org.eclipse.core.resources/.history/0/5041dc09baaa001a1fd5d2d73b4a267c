@@ -1,0 +1,63 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>EL 연습</title>
+</head>
+<body>
+	<div>
+	
+		문자열 <%="문자열" %> ${"문자열"}<br/>
+		${'자바와 다르게 작은 따옴표도 인식'}<br/>
+		<%=123 %> ${123}<br/>
+		<%=true %> ${true} <br/>
+		<br/><br/>
+	</div>
+	<div>
+	
+	<%=8+4%> <%=8-4%> <%=8*4%> <%=8/4%> <br/>
+	${8+4} ${8-4} ${8*4} ${8/4} <br/>
+	${8 div 4} ${8 mod 4}<br/>
+		<br/><br/>
+	</div>
+	<div>
+	
+	<%=3==4%> <%=3!=4%> <%=8<4%> <%=8>4%><br/>
+	${3==4} ${3!=4} ${8<4} ${8>4} <br/>
+	${3 eq 4} ${3 ne 4} ${3 lt 4} ${3 gt 4} <br/>
+		<br/><br/>
+	</div>
+	<div>
+	
+	<%
+		String s = "I'm Sue";
+	%>
+	
+	<%=s %> <br/>
+	<%out.print(s);%> 와 동일한 의미 <br/>
+	
+	"$ { s }"를 사용하면 값이 나오지 않는다
+	<br/><br/>
+	param <br/>
+	<%
+		String xparam = request.getParameter("x");
+		out.println(xparam);
+		
+		out.println( request.getParameter("x"));
+	%><br/>
+	X 파라미터 값: <%=request.getParameter("x") %> <br/>
+	X 파라미터 값: ${param.x} <br/>
+	http://localhost:8001/exwe/exe.jsp?x=호출할것쓰기
+	<br/><br/>
+	
+	User-Agent 헤더값: <%=request.getHeader("User-Agent") %>
+	User-Agent 헤더값: ${ header.User-Agent ) }
+	
+	</div>
+	
+	
+
+</body>
+</html>
