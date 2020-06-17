@@ -1,0 +1,23 @@
+
+public class Ex01_Book {
+
+	String title;
+	String author;
+	
+	public Ex01_Book(String t) { //생성자
+		title = t; author = "작자미상";
+	}
+	
+	public Ex01_Book(String t, String a) { //생성자
+		title = t; author = a;
+	}
+	
+	public static void main(String[] args) {
+		Ex01_Book littlePrince = new Ex01_Book ("어린왕자", "생텍쥐페리");
+		Ex01_Book loveStory = new Ex01_Book ("춘향전");
+		System.out.println(littlePrince.title + " " + littlePrince.author);
+		System.out.println(loveStory.title + " " + loveStory.author);
+		
+	}
+	
+}

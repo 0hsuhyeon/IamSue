@@ -151,6 +151,34 @@ public class MemberDaoJdbc {
 			}
 			return num;
 		}
+
+		public MemberVo selectLoginMember( MemberVo memberVo) {
+			MemberVo vo = null;
+			String sql ="SELECT mem_id, mem_pass, mem_name, mem_point FROM MEMBER WHERE mem_id = ? and mem_pass = ?";
+			try (
+					Connection conn = DriverManager.getConnection(url, user, password);
+					PreparedStatement pstmt = conn.prepareStatement(sql);
+					){
+				
+				pstmt.setString(1, memberVo.getMemId());
+				pstmt.setString(2, memberVo.getMemPass());
+				try (ResultSet rs = pstmt.executeQuery();){
+					if(rs.next()){
+						vo = new MemberVo();
+						vo.setMemId(rs.getString("mem_id"));
+						vo.setMemPass(rs.getString("mem_pass"));
+						vo.setMemName(rs.getString("mem_name"));
+						vo.setMemPoint(rs.getInt("mem_point"));
+						
+					}
+					
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				
+			}
+			return vo;
+		}
 	
 			
 }

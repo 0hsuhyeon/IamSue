@@ -7,7 +7,6 @@
 	<head>          
 	<meta charset='UTF-8'>
 	<title>학생관리</title>
-	
 	<style> body	{background-color: rgba(147, 112, 216, 0.925);} 
 			div		{ 
 					background-color: lightpink; 
@@ -20,6 +19,7 @@
 	
 	</head>               
 	<body align="center">                         
+	<jsp:include page="/WEB-INF/jsp/comm/menu.jsp"></jsp:include>
 	
 		<div>
 		<h1 class='shadow'>학생 목록</h1>      

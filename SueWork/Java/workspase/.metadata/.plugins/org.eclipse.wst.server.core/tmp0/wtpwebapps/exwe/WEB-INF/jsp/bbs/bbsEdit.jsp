@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +18,7 @@
 			<tr><th>제목</th> <td><input type="text" name="bbsTitle" value="${bbsVo.bbsTitle}"/></td></tr> 
 			<tr><th>내용</th> <td><textarea name="bbsContent" rows="10" cols="30" >${bbsVo.bbsContent}</textarea></td></tr>
 			<tr><th>작성자</th> <td>${bbsVo.bbsWriter}</td></tr>
+			<tr><th>작성시간</th> <td><fmt:formatDate value="${bbsVo.bbsRegDate}" pattern="YYYY년  MM월  dd일  HH시 mm분 ss초"/></td></tr>
 		</tbody>
 	</table>
 		<input type = "submit" value="발행">

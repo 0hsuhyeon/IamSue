@@ -7,7 +7,9 @@
 		<title>회원관리</title> 		
 		</head>                        
 		<body align="center">        
-			<h1>회원 추가</h1>       	
+		    <jsp:include page="/WEB-INF/jsp/comm/menu.jsp"></jsp:include>
+			<h1>회원 추가</h1>    
+			   	
 		     
 			<form action="${pageContext.request.contextPath}/member/add.do" method="post">      
 			<fieldset>      								

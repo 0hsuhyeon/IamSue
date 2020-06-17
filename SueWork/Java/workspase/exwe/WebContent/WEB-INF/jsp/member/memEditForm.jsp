@@ -8,6 +8,7 @@
 	<title>회원관리</title> 		
 	</head>                      
 	<body align="center">      
+			<jsp:include page="/WEB-INF/jsp/comm/menu.jsp"></jsp:include>
 		<h1>회원정보변경</h1>       
 		
 		

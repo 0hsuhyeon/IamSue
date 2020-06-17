@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -15,8 +16,8 @@
 
 </head>
 <body align="center">
+	<jsp:include page="/WEB-INF/jsp/comm/menu.jsp"></jsp:include>
 	<h1>🎵글 목록🎵</h1>
-	
 	<a href='${pageContext.request.contextPath}/bbs/add.do'><button>새글쓰기</button></a><br/><br/>
 	<table align="center" border="1">
 		<thead>
@@ -29,7 +30,7 @@
 				<td>${vo.bbsNo}</td>
 				<td><a href="${pageContext.request.contextPath}/bbs/edit.do?bbsNo=${vo.bbsNo}">${vo.bbsTitle}</a></td>
 				<td>${vo.bbsWriter}</td>
-				<td>${vo.bbsRegDate}</td>
+				<td><fmt:formatDate value="${vo.bbsRegDate}" pattern= "YYYY/MM/dd HH:mm:ss" /></td>
 				<td>${vo.bbsCount}</td>
 				</tr>
 			</c:forEach>	

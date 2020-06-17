@@ -18,6 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 @WebServlet("/member/list.do")
 
 // 회원목록 화면에 '회원추가'링크를 추가하고
@@ -29,15 +30,19 @@ public class MemberListServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		ArrayList<MemberVo> list = memberDao.selectMemberList();
 		
-		req.setAttribute("memList", list); // 요청객체에 'memlist'라는 이름으로 list 데이터를 저장
+			ArrayList<MemberVo> list = memberDao.selectMemberList();
+			
+			req.setAttribute("memList", list); // 요청객체에 'memlist'라는 이름으로 list 데이터를 저장
+			
+			// "/WEB-INF/jsp/member/memlist.jsp" 파일로 이동
+			
+			//RequestDispatcher rd= req.getRequestDispatcher("/WEB-INF/jsp/member/memList.jsp");
+			//rd.forward(req,resp); // 현재 요청객체체와 응답객체를 전달해주면서 이동
+			req.getRequestDispatcher("/WEB-INF/jsp/member/memList.jsp").forward(req,resp); // 윗줄 2개와 같은 의미
+			
 		
-		// "/WEB-INF/jsp/member/memlist.jsp" 파일로 이동
 		
-		//RequestDispatcher rd= req.getRequestDispatcher("/WEB-INF/jsp/member/memList.jsp");
-		//rd.forward(req,resp); // 현재 요청객체체와 응답객체를 전달해주면서 이동
-		req.getRequestDispatcher("/WEB-INF/jsp/member/memList.jsp").forward(req,resp); // 윗줄 2개와 같은 의미
 		
 		
 	}
