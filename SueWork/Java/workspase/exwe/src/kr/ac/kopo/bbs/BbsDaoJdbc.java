@@ -6,29 +6,21 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 //DAO (Data Access Object):
 // 자바 데이터 (객체) <-> 데이터베이스 데이터(테이블) 사이의 상호변환을 담당
-public class BbsDaoJdbc {
+public class BbsDaoJdbc implements BbsDao {
 
-	{
-		// 초기화 블럭
-		try {
-			Class.forName("oracle.jdbc.OracleDriver");
-			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
-	
 	String url ="jdbc:oracle:thin:@localhost:1521:xe";
 	String user ="com"; 
 	String password ="com01"; 
 	
-		public ArrayList<BbsVo> selectBbsList() {
+		@Override
+		public List<BbsVo> selectBbsList() {
 			
 			
-			ArrayList<BbsVo> list = new ArrayList<BbsVo>();
+			List<BbsVo> list = new ArrayList<BbsVo>();
 			String sql ="SELECT bbs_no, bbs_title, bbs_writer, bbs_reg_date, bbs_count FROM Bbs";
 			try (
 				
@@ -54,6 +46,7 @@ public class BbsDaoJdbc {
 			return list;
 		}
 		
+		@Override
 		public int insertBbs(BbsVo vo) {
 				
 				//SQL문에서 변화하는 값은 ?로 표시
@@ -80,6 +73,7 @@ public class BbsDaoJdbc {
 				return num;
 		}
 	
+		@Override
 		public BbsVo selectBbs(int bbsNo) {
 			BbsVo vo = null;
 			String sql ="SELECT bbs_no, bbs_title, bbs_content, bbs_writer, bbs_reg_date, bbs_count FROM Bbs WHERE bbs_no = ?";
@@ -110,6 +104,7 @@ public class BbsDaoJdbc {
 			return vo;
 		}
 	
+		@Override
 		public int updateBbs(BbsVo vo) {
 			int num =0;
 			String sql ="UPDATE Bbs SET bbs_title =?, bbs_content=? where bbs_no = ?" ;
@@ -134,6 +129,7 @@ public class BbsDaoJdbc {
 		}
 	
 		
+		@Override
 		public int deleteBbs(int bbsNo) {
 			int num = 0;
 			String sql = "DELETE FROM Bbs where bbs_no = ?";//실행할 SQL문을 명령문 객체로 생성(실행준비)

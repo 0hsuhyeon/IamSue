@@ -11,21 +11,9 @@ import java.util.ArrayList;
 //자바 데이터 (객체) <-> 데이터베이스 데이터(테이블) 사이의 상호변환을 담당
 	public class StudentDaoJdbc {
 		
-		{
-			// 초기화 블럭
-			try {
-				Class.forName("oracle.jdbc.OracleDriver");
-				
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			}
-		}
-		
 		String url ="jdbc:oracle:thin:@localhost:1521:xe";
 		String user ="com"; 
 		String password ="com01"; 
-	
-	
 	
 	public ArrayList<StudentVo> selectStudentList() {
 		

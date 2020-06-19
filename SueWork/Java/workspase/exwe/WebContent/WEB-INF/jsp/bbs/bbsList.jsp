@@ -28,8 +28,8 @@
 			<c:forEach var="vo" items= "${bbsList}">
 				<tr>
 				<td>${vo.bbsNo}</td>
-				<td><a href="${pageContext.request.contextPath}/bbs/edit.do?bbsNo=${vo.bbsNo}">${vo.bbsTitle}</a></td>
-				<td>${vo.bbsWriter}</td>
+				<td><a href="${pageContext.request.contextPath}/bbs/edit.do?bbsNo=${vo.bbsNo}"><c:out value="${vo.bbsTitle}"></c:out></a></td>
+				<td><c:out value="${vo.bbsWriter}" /></td>
 				<td><fmt:formatDate value="${vo.bbsRegDate}" pattern= "YYYY/MM/dd HH:mm:ss" /></td>
 				<td>${vo.bbsCount}</td>
 				</tr>

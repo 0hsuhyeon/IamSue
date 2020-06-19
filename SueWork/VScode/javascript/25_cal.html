@@ -41,7 +41,7 @@
                 onclick="clk('mu')">*</button>
         <br/>  
         <button id='cl' style="width: 50px; height: 50px; font-size: 30px;"
-                onclick="clk('cl')">c</button>
+                onclick="clr('cl')">c</button>
         <button id='j' style="width: 50px; height: 50px; font-size: 30px;"
                 onclick="clk('j')">0</button>
         <button id='eq' style="width: 50px; height: 50px; font-size: 30px;"
@@ -54,14 +54,16 @@
     <script>
             
        var con = document.getElementById('con').value
-      
+       var num = []
+       var op = []
+
        function cal(){
             var result =0
             var temp = '' //입력되는 값을 저장할 빈 공간
             var 
 
             for (let i = 0; i < con.length; i++) {
-                if(con[i] != '+' || con[i] != '-' || con[i] != '*' || con[i] != '/' ){
+                if(con[i] != '+' &&  con){
                     temp = temp + con[i] // 값 저장 중
                 }else{
                     result = result+parseInt(temp) //수식 입력후 이전 값을 result에 저장 
@@ -69,20 +71,6 @@
                 }        
             }  
                result = result + parseInt(temp) // 수식 입력 이전값 + 이후값
-        //        switch (clk(x)) {
-        //                 case 'pl':
-        //                 result = result + parseInt(temp)  
-        //                         break;
-        //                 case 'ma':
-        //                 result = result - parseInt(temp) 
-        //                         break;
-        //                 case 'mu':
-        //                 result = result * parseInt(temp) 
-        //                         break;
-        //                 case 'di':
-        //                 result = result / parseInt(temp) 
-        //                         break;
-        //         }
 
 
                 document.getElementById('con').value = result //결과를 intut에 넣기

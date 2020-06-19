@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.ldap.Rdn;
 import javax.servlet.RequestDispatcher;
@@ -25,13 +26,13 @@ import javax.servlet.http.HttpSession;
 // 링크를 클릭하면 http://localhost:8000/exwe/member/addform.do 로 이동
 public class MemberListServlet extends HttpServlet{
 	
-	MemberDaoJdbc memberDao = new MemberDaoJdbc();		
+	MemberDao memberDao = new MemberDaoBatis();		
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		
-			ArrayList<MemberVo> list = memberDao.selectMemberList();
+			List<MemberVo> list = memberDao.selectMemberList();
 			
 			req.setAttribute("memList", list); // 요청객체에 'memlist'라는 이름으로 list 데이터를 저장
 			

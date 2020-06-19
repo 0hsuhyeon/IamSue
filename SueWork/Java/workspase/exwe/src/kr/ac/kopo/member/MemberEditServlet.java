@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/member/edit.do")
 public class MemberEditServlet extends HttpServlet {
 	
-		MemberDaoJdbc memberDao= new MemberDaoJdbc();
+		MemberDao memberDao= new MemberDaoBatis();
 		
 		@Override //EditForm
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -30,7 +30,7 @@ public class MemberEditServlet extends HttpServlet {
 		@Override //Edit
 		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 			
-			req.setCharacterEncoding("UTF-8"); // POST 방식으로 전송된 파라미터값의 인코딩 설정
+			
 			
 			MemberVo vo = new MemberVo();
 			vo.setMemId(req.getParameter("memId"));

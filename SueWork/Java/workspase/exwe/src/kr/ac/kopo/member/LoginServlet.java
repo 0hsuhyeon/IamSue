@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/member/login.do")
 public class LoginServlet extends HttpServlet{
 	
-	MemberDaoJdbc memberDao = new MemberDaoJdbc();	
+	MemberDao memberDao = new MemberDaoBatis();	
 //	1. "/member/login.do" 로 GET방식 요청을 보내면
 //	/WEB-INF/jsp/member/login.jsp로 이동(forward)하여 아이디와 비밀번호를 입력할 수 있는 화면을 출력
 	@Override

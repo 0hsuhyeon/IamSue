@@ -12,7 +12,7 @@ import kr.ac.kopo.member.MemberVo;
 
 @WebServlet("/bbs/edit.do")
 public class BbsEditServlet extends HttpServlet{
-	BbsDaoJdbc bbsDao = new BbsDaoJdbc();
+	BbsDao bbsDao = new BbsDaoBatis();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -25,7 +25,7 @@ public class BbsEditServlet extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding("UTF-8");
+		
 		
 		BbsVo vo = new BbsVo();
 		vo.setBbsTitle(req.getParameter("bbsTitle"));
